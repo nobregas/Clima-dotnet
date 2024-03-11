@@ -1,6 +1,6 @@
 ﻿namespace ClimaTempo.models;
 
-public class WeatherDataOpenWeather
+public class OpenWeatherResponse
 {
     public string Name { get; set; }
     public Main Main { get; set; }

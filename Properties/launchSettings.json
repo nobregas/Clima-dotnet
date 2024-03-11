@@ -15,7 +15,9 @@
       "launchBrowser": true,
       "applicationUrl": "http://localhost:5079",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "MyApi:ApiKey": "e24a397830b3805362ffd8626ff99cbe",
+        "MyApi:Units": "metric"
       }
     },
     "https": {

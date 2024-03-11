@@ -15,4 +15,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="models\ResponseData.cs" />
+    <Compile Remove="models\GeoCodignResponse.cs" />
+    <Compile Remove="services\GeoServiceTest.cs" />
+  </ItemGroup>
+
 </Project>

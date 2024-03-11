@@ -1,50 +1,55 @@
-﻿using System.Text.Json;
-using ClimaTempo.models;
+﻿using ClimaTempo.models;
+using ClimaTempo.services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClimaTempo.controllers;
 
 [ApiController]
-[Route("/v1/weather")]
+[Route("/api")]
 public class WeatherController : Controller
 {
-    private readonly IHttpClientFactory _httpClientFactory;
+    private readonly IGeoService _geoService;
+    private readonly IWeatherService _weatherService;
 
-    public WeatherController(IHttpClientFactory httpClientFactory)
+    public WeatherController(IGeoService geoService, IWeatherService weatherService)
     {
-        _httpClientFactory = httpClientFactory;
+        _geoService = geoService;
+        _weatherService = weatherService;
     }
+    
     
     //Methods
 
-    [HttpGet]
-    public async Task<IActionResult> GetWeather([FromQuery] float lat, [FromQuery] float lon)
-    {   
-        var httpClient = _httpClientFactory.CreateClient();
-        var apiKey = "e24a397830b3805362ffd8626ff99cbe";
-        var units = "metric";
-        var url = $"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={apiKey}&units={units}";
-
-        var response = await httpClient.GetAsync(url);
-        if (!response.IsSuccessStatusCode)
+    [HttpGet("weatherbycity/{city}")]
+    public async Task<IActionResult> GetWeather([FromRoute] string city)
+    {
+        try
         {
-            return BadRequest("Erro ao obter os dados do clima");
+            var location = await _geoService.GetCoords(city);
+            var weatherData = await _weatherService.GetWeather(location.Latitude, location.Longitude);
+
+            return Ok(weatherData);
         }
-
-        var weatherData = await response.Content.ReadFromJsonAsync<WeatherDataOpenWeather>();
-        var weatherDataResponse = new WeatherData
-        (
-            weatherData.Name,
-            weatherData.Main.Temp,
-            weatherData.Main.Humidity,
-            weatherData.Weather[0].Description
-        );
-
-        return Ok(weatherDataResponse);
-
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 
+    [HttpGet("weathercoords")]
+    public async Task<IActionResult> GetWeatherByCoords([FromQuery] double lat, [FromQuery] double lon)
+    {
+        try
+        {
+            var weatherData = await _weatherService.GetWeather(lat, lon);
 
+            return Ok(weatherData);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 
 
 
