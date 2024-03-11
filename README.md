@@ -1,13 +1,20 @@
 Para testar rode na maquina localmente e entao:
 
-(Get) [localhost](http://localhost:5079/v1/weather?lat=SUALATITUDE&lon=SUALONGITUDE)
-
 Exemplo:
-// http://localhost:5079/v1/weather?lat=-7.23&lon=-35.88
+// http://localhost:5079/api/weatherbycity/Campina%20Grande
 
 {
   "city": "Campina Grande",
-  "temperature": 26.9,
-  "humidity": 65,
-  "description": "clear sky"
+  "temperature": 32.87,
+  "humidity": 46,
+  "description": "scattered clouds"
+}
+
+// http://localhost:5079/api/weathercoords?lat=-7.23056&lon=-35.88111
+
+{
+  "city": "Campina Grande",
+  "temperature": 32.9,
+  "humidity": 46,
+  "description": "scattered clouds"
 }
