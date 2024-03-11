@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClimaTempo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a394532d6ecdd465c13c30c0fa1eacc6a2c1c67")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClimaTempo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClimaTempo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

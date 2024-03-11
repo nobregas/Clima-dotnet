@@ -124,3 +124,4 @@ C:\Users\gnobr\Documents\c#\apirest-2_Clima\ClimaTempo\obj\Debug\net8.0\refint\C
 C:\Users\gnobr\Documents\c#\apirest-2_Clima\ClimaTempo\obj\Debug\net8.0\ClimaTempo.pdb
 C:\Users\gnobr\Documents\c#\apirest-2_Clima\ClimaTempo\obj\Debug\net8.0\ClimaTempo.genruntimeconfig.cache
 C:\Users\gnobr\Documents\c#\apirest-2_Clima\ClimaTempo\obj\Debug\net8.0\ref\ClimaTempo.dll
+C:\Users\gnobr\Documents\c#\apirest-2_Clima\ClimaTempo\obj\Debug\net8.0\ClimaTempo.sourcelink.json
